@@ -3,7 +3,7 @@
 import Navbar from "./components/Navbar";
 import Hero from "./pages/Hero";
 import New from "./pages/New";
-
+import Page from "./pricing/page"
 function Home() {
   return (
     <>
@@ -11,6 +11,7 @@ function Home() {
         <Navbar />
         <Hero />
         <New />
+        <Page />
       </div>
     </>
   );
