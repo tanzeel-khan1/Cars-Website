@@ -49,7 +49,7 @@ const Hero = () => {
 
       <motion.img
         src="subtract.png"
-        className="mt-20"
+        className="mt-20 md:h-110 h-50 w-full" 
         alt="Car"
         initial={{ opacity: 0, y: 80 }}
         whileInView={{ opacity: 1, y: 0 }}

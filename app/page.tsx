@@ -1,16 +1,18 @@
-'use client';
+"use client";
 
-import Navbar from "./components/Navbar"
-import Hero from "./pages/Hero"
+import Navbar from "./components/Navbar";
+import Hero from "./pages/Hero";
+import New from "./pages/New";
 
 function Home() {
-  return(
+  return (
     <>
-   <div className="bg-black">
-    <Navbar/>
-    <Hero/>
-   </div>
+      <div className="bg-black">
+        <Navbar />
+        <Hero />
+        <New />
+      </div>
     </>
-  )
+  );
 }
-export default Home
+export default Home;
