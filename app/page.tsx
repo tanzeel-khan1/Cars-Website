@@ -1,6 +1,7 @@
 "use client";
 
 import Navbar from "./components/Navbar";
+import Cars from "./pages/Cars";
 import Hero from "./pages/Hero";
 import New from "./pages/New";
 import Page from "./pricing/page"
@@ -12,6 +13,7 @@ function Home() {
         <Hero />
         <New />
         <Page />
+        <Cars/>
       </div>
     </>
   );
