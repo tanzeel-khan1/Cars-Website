@@ -1,9 +1,10 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-
+import Page from "../service/page";
 const Cars = () => {
   return (
+   <>
     <div className="pl-10 md:pl-32 pr-8 md:pr-20 flex justify-center">
       <motion.img
         src="cars.png"
@@ -14,6 +15,8 @@ const Cars = () => {
         viewport={{ once: false }}
       />
     </div>
+    <Page/>
+   </>
   );
 };
 
