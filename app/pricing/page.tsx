@@ -37,6 +37,7 @@ export default function DetailingSection() {
   };
 
   return (
+    
     <section className="bg-black mt-20 px-6 pb-24 pt-16 md:px-10 lg:px-20">
       <div className="mx-auto max-w-6xl">
         <div className="mb-12 max-w-xl space-y-4">
