@@ -99,7 +99,7 @@ export default function ContactPage() {
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.15 }}
-              className="rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur-sm shadow-[0_30px_120px_rgba(255,255,255,0.05)]"
+              className="rounded-4xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm shadow-[0_30px_120px_rgba(255,255,255,0.05)]"
             >
               <h2 className="text-xl font-semibold mb-3">Fast response</h2>
               <p className="text-gray-300 leading-7">
@@ -110,7 +110,7 @@ export default function ContactPage() {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur-sm shadow-[0_30px_120px_rgba(255,255,255,0.05)]"
+              className="rounded-4xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm shadow-[0_30px_120px_rgba(255,255,255,0.05)]"
             >
               <h2 className="text-xl font-semibold mb-3">Saved locally</h2>
               <p className="text-gray-300 leading-7">
@@ -127,7 +127,7 @@ export default function ContactPage() {
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="rounded-[2rem] border border-white/10 bg-white/5 p-10 backdrop-blur-sm shadow-[0_30px_120px_rgba(255,255,255,0.05)]"
+            className="rounded-4xl border border-white/10 bg-white/5 p-10 backdrop-blur-sm shadow-[0_30px_120px_rgba(255,255,255,0.05)]"
           >
             <p className="text-gray-300 leading-8 mb-8">
               Whether you want a showroom-level gloss or a complete interior renewal, the form below captures your premium request locally.

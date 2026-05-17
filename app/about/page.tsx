@@ -137,7 +137,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, ease: "easeOut" }}
-            className="rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur-sm shadow-[0_30px_120px_rgba(255,255,255,0.04)]"
+            className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm shadow-[0_30px_120px_rgba(255,255,255,0.04)]"
           >
             <h3 className="text-2xl font-semibold mb-4">Ready to upgrade your car’s shine?</h3>
             <p className="text-gray-300 leading-7 mb-8">

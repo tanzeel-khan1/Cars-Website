@@ -1,122 +1,99 @@
-
 "use client";
-import React from "react";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 
-const textVariants: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: ["easeOut"] }, 
+const features = [
+  {
+    icon: "eyess.png",
+    title: "Precision Work",
+    description: "We uphold the highest standards of care when servicing every luxury vehicle.",
   },
-};
-
-const imageVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 1, ease: ["easeOut"] }, 
+  {
+    icon: "dia.png",
+    title: "Premium Products",
+    description: "Only professional-grade coatings, cleaners, and protection systems are used.",
   },
-};
+  {
+    icon: "security.png",
+    title: "Privacy First",
+    description: "Discreet service and secure handling are guaranteed for every client.",
+  },
+];
 
-const itemVariants: Variants = {
-  hidden: { opacity: 0, x: 50 },
-  visible: (i: number) => ({
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.6, delay: i * 0.2, ease: ["easeOut"] },
-  }),
-};
-
-interface ServiceItem {
-  img: string;
-  title: string;
-  text1: string;
-  text2: string;
-}
-
-const Ser: React.FC = () => {
-  const serviceItems: ServiceItem[] = [
-    {
-      img: "eyess.png",
-      title: "Precise work",
-      text1: "We uphold the highest standards of professionalism when",
-      text2: "servicing your vehicles.",
-    },
-    {
-      img: "dia.png",
-      title: "Premium Products and Services",
-      text1: "Ensure your car's longevity with a periodic exterior",
-      text2: "protection treatment.",
-    },
-    {
-      img: "security.png",
-      title: "High-Level Security and Privacy",
-      text1: "We understand the importance of privacy and security",
-      text2: "for our clientele.",
-    },
-  ];
-
+export default function ServicePage() {
   return (
-    <div className="pl-10 md:pl-32 pr-8 md:pr-20 mt-36 mb-10">
-      <motion.div
-        className="flex flex-col md:flex-row w-full md:h-120"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.2 }}
-      >
+    <section className="bg-black px-6 py-28 text-white md:px-10 lg:px-20">
+      <div className="mx-auto max-w-6xl">
         <motion.div
-          className="w-full md:w-1/2 md:border-r md:border-white/15 flex flex-col justify-center"
-          variants={textVariants}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="mb-12 max-w-3xl"
         >
-          <motion.h1
-            className="text-3xl sm:text-4xl md:text-5xl font-extralight font-[Gill_Sans] leading-tight"
-            variants={textVariants}
-          >
-            We will take good
-          </motion.h1>
-          <motion.h1
-            className="text-3xl sm:text-4xl md:text-5xl font-extralight font-[Gill_Sans] leading-tight"
-            variants={textVariants}
-          >
-            care of your car
-          </motion.h1>
-
-          <motion.img
-            src="ser.png"
-            alt="Service"
-            className="w-full md:w-auto mt-10 md:mt-3 object-contain"
-            variants={imageVariants}
-          />
+          <p className="text-sm uppercase tracking-[0.35em] text-gray-400">Service</p>
+          <h1 className="mt-4 text-4xl font-light leading-tight text-white sm:text-5xl">
+            Superior detailing built around your vehicle's needs.
+          </h1>
+          <p className="mt-6 text-base leading-8 text-gray-300">
+            From exterior finish to interior restoration, every service is tailored to deliver a premium experience.
+          </p>
         </motion.div>
 
-        <div className="w-full md:w-1/2 mt-10 md:mt-0">
-          {serviceItems.map((item, i: number) => (
-            <motion.div
-              key={i}
-              className={`mx-2 pl-1.5 pb-8 ${
-                i < 2 ? "border-b border-white/10" : ""
-              } ${i === 0 ? "mt-0" : "mt-8"}`}
-              custom={i}
-              variants={itemVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false }}
-            >
-              <div className="flex items-center">
-                <img src={item.img} alt={item.title} className="ml-5 w-10 h-10" />
-                <h1 className="pl-3 text-2xl">{item.title}</h1>
-              </div>
-              <p className="text-[#CCCCCC] ml-5 mt-5">{item.text1}</p>
-              <p className="text-[#CCCCCC] ml-5">{item.text2}</p>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
-    </div>
-  );
-};
+        <div className="grid gap-8 xl:grid-cols-[1.1fr_0.9fr]">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="rounded-4xl border border-white/10 bg-white/5 p-10 shadow-[0_40px_120px_rgba(0,0,0,0.25)]"
+          >
+            <h2 className="text-3xl font-semibold">What we offer</h2>
+            <p className="mt-5 text-gray-300 leading-8">
+              Every service begins with a detailed inspection, followed by a curated care plan to preserve and enhance your vehicle.
+            </p>
+            <div className="mt-10 space-y-6">
+              {features.map((feature, index) => (
+                <div key={feature.title} className="rounded-3xl border border-white/10 bg-black/60 p-6">
+                  <div className="flex items-center gap-4">
+                    <img src={feature.icon} alt={feature.title} className="h-12 w-12 rounded-2xl border border-white/10 bg-white/5 p-2" />
+                    <div>
+                      <h3 className="text-xl font-semibold">{feature.title}</h3>
+                      <p className="mt-2 text-gray-300 leading-7">{feature.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
 
-export default Ser;
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="rounded-4xl border border-white/10 bg-[radial-gradient(circle_at_top,rgba(221,179,96,0.12),transparent_45%)] p-10 shadow-[0_30px_90px_rgba(0,0,0,0.22)]"
+          >
+            <h2 className="text-3xl font-semibold">Service experience</h2>
+            <p className="mt-5 text-gray-300 leading-8">
+              Benefit from thoughtful scheduling, expert care, and a boutique approach to luxury car maintenance.
+            </p>
+            <ul className="mt-8 space-y-4 text-gray-300">
+              <li className="flex items-start gap-3">
+                <span className="mt-1 inline-flex h-2.5 w-2.5 rounded-full bg-[#ddb360]" />
+                Expert surface prep, polish, and protective finishes.
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1 inline-flex h-2.5 w-2.5 rounded-full bg-[#ddb360]" />
+                Interior sanitization and deep rejuvenation for leather, cloth, and trim.
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1 inline-flex h-2.5 w-2.5 rounded-full bg-[#ddb360]" />
+                Detail reports, product recommendations, and premium aftercare guidance.
+              </li>
+            </ul>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
