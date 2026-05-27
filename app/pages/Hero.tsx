@@ -2,10 +2,16 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { MdArrowRight } from "react-icons/md";
+import dynamic from "next/dynamic";
+
+const ThreeJsScene = dynamic(() => import("../components/ThreeJsScene"), {
+  ssr: false,
+});
 
 const Hero = () => {
   return (
     <section className="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(221,179,96,0.14),transparent_30%),linear-gradient(180deg,#070707_0%,#020202_100%)]">
+      <ThreeJsScene />
       <div className="absolute inset-x-0 top-0 h-72 bg-[radial-gradient(circle_at_top,_rgba(221,179,96,0.18),transparent_45%)]" />
       <div className="mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-6 py-28 md:px-10">
         <motion.div

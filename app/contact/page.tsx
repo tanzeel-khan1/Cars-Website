@@ -2,6 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+
+const PremiumBackground = dynamic(() => import("../components/PremiumBackground"), { ssr: false });
 
 const localStorageKey = "luxurDetailsContactSubmissions";
 
@@ -65,7 +68,8 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="bg-black text-white min-h-screen relative">
+    <main className="bg-black text-white min-h-screen relative overflow-hidden">
+      <PremiumBackground />
       {showToast && (
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -77,7 +81,7 @@ export default function ContactPage() {
           <p className="text-sm font-semibold">Request saved successfully.</p>
         </motion.div>
       )}
-      <section className="pt-28 px-6 md:px-20 lg:px-32 pb-12">
+      <section className="pt-28 px-6 md:px-20 lg:px-32 pb-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -99,8 +103,10 @@ export default function ContactPage() {
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.15 }}
-              className="rounded-4xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm shadow-[0_30px_120px_rgba(255,255,255,0.05)]"
+              whileHover={{ y: -5 }}
+              className="rounded-4xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm shadow-[0_30px_120px_rgba(255,255,255,0.05)] hover:border-white/20 hover:bg-white/8 transition-all duration-300"
             >
+              <div className="text-3xl mb-3">⚡</div>
               <h2 className="text-xl font-semibold mb-3">Fast response</h2>
               <p className="text-gray-300 leading-7">
                 Our team reviews every request and prepares the perfect luxury detailing package for your car.
@@ -110,8 +116,10 @@ export default function ContactPage() {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="rounded-4xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm shadow-[0_30px_120px_rgba(255,255,255,0.05)]"
+              whileHover={{ y: -5 }}
+              className="rounded-4xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm shadow-[0_30px_120px_rgba(255,255,255,0.05)] hover:border-white/20 hover:bg-white/8 transition-all duration-300"
             >
+              <div className="text-3xl mb-3">🔒</div>
               <h2 className="text-xl font-semibold mb-3">Saved locally</h2>
               <p className="text-gray-300 leading-7">
                 Each submission is stored securely in your browser, so your request stays available even if you refresh.
@@ -121,13 +129,13 @@ export default function ContactPage() {
         </motion.div>
       </section>
 
-      <section className="px-6 md:px-20 lg:px-32 pb-20">
+      <section className="px-6 md:px-20 lg:px-32 pb-20 relative z-10">
         <div className="max-w-6xl mx-auto grid gap-10 xl:grid-cols-[1.5fr_1fr] items-start">
           <motion.div
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="rounded-4xl border border-white/10 bg-white/5 p-10 backdrop-blur-sm shadow-[0_30px_120px_rgba(255,255,255,0.05)]"
+            className="rounded-4xl border border-white/10 bg-white/5 p-10 backdrop-blur-sm shadow-[0_30px_120px_rgba(255,255,255,0.05)] hover:border-white/20 hover:bg-white/8 transition-all duration-300"
           >
             <p className="text-gray-300 leading-8 mb-8">
               Whether you want a showroom-level gloss or a complete interior renewal, the form below captures your premium request locally.
@@ -170,7 +178,7 @@ export default function ContactPage() {
 
               <button
                 type="submit"
-                className="inline-flex cursor-pointer items-center justify-center rounded-full bg-white px-8 py-3 text-sm font-semibold text-black transition hover:bg-gray-200"
+                className="inline-flex cursor-pointer items-center justify-center rounded-full bg-[#ddb360] px-8 py-3 text-sm font-semibold text-black transition hover:bg-[#e6c778] hover:scale-105 active:scale-95"
               >
                 Save request
               </button>
@@ -185,7 +193,11 @@ export default function ContactPage() {
             transition={{ duration: 0.8, delay: 0.15 }}
             className="space-y-8"
           >
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm shadow-[0_30px_120px_rgba(255,255,255,0.05)]">
+            <motion.div 
+              whileHover={{ y: -5 }}
+              className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm shadow-[0_30px_120px_rgba(255,255,255,0.05)] hover:border-white/20 hover:bg-white/8 transition-all duration-300"
+            >
+              <div className="text-2xl mb-4">💬</div>
               <h2 className="text-2xl font-semibold mb-4">Get in touch</h2>
               <p className="text-gray-300 leading-7 mb-6">
                 We are ready to answer your questions and help you choose the perfect detailing package.
@@ -204,16 +216,20 @@ export default function ContactPage() {
                   <p className="mt-2">123 Prestige Lane, Downtown City</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm shadow-[0_30px_120px_rgba(255,255,255,0.05)]">
+            <motion.div 
+              whileHover={{ y: -5 }}
+              className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm shadow-[0_30px_120px_rgba(255,255,255,0.05)] hover:border-white/20 hover:bg-white/8 transition-all duration-300"
+            >
+              <div className="text-2xl mb-4">🕐</div>
               <h2 className="text-2xl font-semibold mb-4">Opening hours</h2>
               <div className="space-y-3 text-gray-300">
                 <p>Monday - Friday: 9:00 AM - 7:00 PM</p>
                 <p>Saturday: 10:00 AM - 5:00 PM</p>
                 <p>Sunday: Closed</p>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>

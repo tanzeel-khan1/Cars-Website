@@ -2,6 +2,9 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+
+const PremiumBackground = dynamic(() => import("../components/PremiumBackground"), { ssr: false });
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -15,14 +18,15 @@ const cardFade = {
 
 export default function AboutPage() {
   return (
-    <main className="bg-black text-white min-h-screen">
+    <main className="bg-black text-white min-h-screen relative overflow-hidden">
+      <PremiumBackground />
       <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.25 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         variants={fadeUp}
-        className="pt-28 px-6 md:px-20 lg:px-32 pb-16"
+        className="pt-28 px-6 md:px-20 lg:px-32 pb-16 relative z-10"
       >
         <div className="max-w-6xl mx-auto">
           <span className="text-sm uppercase tracking-[0.35em] text-gray-400">
@@ -71,7 +75,8 @@ export default function AboutPage() {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.7, delay: 0.15 * index }}
-                className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
+                whileHover={{ y: -5 }}
+                className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm hover:border-white/20 hover:bg-white/8 transition-all duration-300"
               >
                 <h2 className="text-xl font-semibold mb-3">{item.title}</h2>
                 <p className="text-gray-300 leading-7">{item.description}</p>
@@ -87,7 +92,7 @@ export default function AboutPage() {
         viewport={{ once: true, amount: 0.25 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         variants={fadeUp}
-        className="border-t border-white/10 py-16 px-6 md:px-20 lg:px-32"
+        className="border-t border-white/10 py-16 px-6 md:px-20 lg:px-32 relative z-10"
       >
         <div className="max-w-6xl mx-auto grid gap-10 lg:grid-cols-2 items-center">
           <motion.div
